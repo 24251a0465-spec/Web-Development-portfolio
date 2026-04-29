@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <!-- ✅ ADD IT HERE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <!-- Header -->
+    <header class="fade-in">
+        <h1>My Portfolio</h1>
+        <p>Welcome to my personal website 👋</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-skills fade-in">
+        <h2>👩‍💻 About Me</h2>
+        
+        <p>
+            Hi! I'm <b>Srujana</b>,a 2nd year undergraduate student from <b>[GNITS]</b> with a strong interest in web development.
+        </p>
+
+        <p>
+            I have been a part of Hyderabad Youth Assembly (HYA) and worked as an Organising Committee member,
+            where I developed leadership and teamwork skills.
+        </p>
+
+        <h3>🛠 Skills</h3>
+        <div class="skills-container">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+        </div>
+
+        <h3>📜 Certifications</h3>
+        <div class="skills-container">
+            <span>IoT Decathlon</span>
+            <span>TinyML Workshop</span>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section fade-in">
+        <h2>📬 Contact Me</h2>
+
+        <form id="contactForm" class="contact-form">
+            <input type="text" id="name" placeholder="👤 Your Name" required>
+            <input type="email" id="email" placeholder="📧 Your Email" required>
+            <textarea id="message" placeholder="💬 Your Message" required></textarea>
+
+            <button type="submit">🚀 Send Message</button>
+        </form>
+
+        <p id="response"></p>
+    </section>
+    <section class="social-section">
+    <h2>🌐 Connect With Me</h2>
+
+    <div class="social-links">
+    
+
+        <a href="https://github.com/24251a0465-spec" target="_blank">💻 GitHub</a>
+
+        <a href="https://mail.google.com/mail/u/0/#inbox">📧 Gmail</a>
+    </div>
+</section>
+
+    <footer class="fade-in">
+        <p>© 2026 My Portfolio</p>
+    </footer>
+
+    <!-- JS stays same -->
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const responseText = document.getElementById("response");
+        responseText.innerText = "⏳ Sending...";
+
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        try {
+            const res = await fetch("http://localhost:3000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            responseText.innerText = "✅ " + result.message;
+
+            document.getElementById("contactForm").reset();
+
+        } catch (error) {
+            responseText.innerText = "❌ Server not working!";
+        }
+    });
+    </script>
+
+</body>

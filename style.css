@@ -1,0 +1,112 @@
+/* Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(120deg, #6c63ff, #00c9ff);
+}
+
+/* Glass effect */
+section, header, footer {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+}
+
+/* Skills */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-container span {
+    background: rgba(255,255,255,0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skills-container span:hover {
+    background: white;
+    color: #333;
+    transform: scale(1.1);
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Button */
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #333;
+    color: white;
+}
+.github {
+    background: #333;
+    color: white;
+}
+
+.gmail {
+    background: #ea4335;
+    color: white;
+}
+
+/* Add this for better look */
+.social-links a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.social-links a:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}
